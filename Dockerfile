@@ -24,4 +24,7 @@ RUN apt update \
 
 RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 
+RUN pecl install redis -n \
+    && echo "\nextension=redis.so" >> /usr/local/etc/php/php.ini
+
 EXPOSE 9000
